@@ -1,5 +1,5 @@
 import {k} from "./kabbomCtx.js";
-import {scaleFactor} from "./constants.js";
+import {dialogueData, scaleFactor} from "./constants.js";
 import {displayDialogue, setCamScale} from "./utils.js";
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
@@ -61,7 +61,7 @@ k.scene("main", async () => {
                 if (boundary.name) {
                     player.onCollide(boundary.name, () => {
                         player.isInDialogue = true;
-                        displayDialogue("TEST", () => (player.isInDialogue = false));
+                        displayDialogue(dialogueData[boundary.name], () => (player.isInDialogue = false));
                     });
                 }
             }
